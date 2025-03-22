@@ -15,7 +15,6 @@ function getListItems() {
   const hardwareResourceListItems = document.querySelectorAll(
     "#hardware-resource-list>li>a"
   );
-  console.log(resourceListItems);
   return [
     ...resourceListItems,
     ...generalProgrammingItems,
