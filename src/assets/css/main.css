@@ -9,3 +9,7 @@ html {
     margin: 0;
     padding: 0;
 }
+
+body {
+    font: 16px/24px "Open Sans", "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+}
