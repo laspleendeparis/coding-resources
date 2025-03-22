@@ -54,3 +54,16 @@ hr {
     color: #ddd;
     border-radius: 5px;
 }
+
+header {
+    display: flex;
+    border-bottom: 2px solid #f4f4f4;
+    margin-bottom: 10px;
+}
+header > * {
+    flex: auto;
+}
+
+ul {
+    list-style: none;
+}
