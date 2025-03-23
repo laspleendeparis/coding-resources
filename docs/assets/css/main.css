@@ -1,5 +1,6 @@
 html {
     box-sizing: border-box;
+    scroll-behavior: smooth;
 }
 
 *,
@@ -11,7 +12,7 @@ html {
 }
 
 body {
-    font: 16px/24px "Open Sans", "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+    font: 17px/24px "Open Sans", "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
     background: #1e1e1e;
     color: #ddd;
     padding: 20px;
@@ -34,7 +35,7 @@ h1 {
 }
 
 h2 {
-    font-size: 24px;
+    font-size: 28px;
     margin-top: 32px;
 }
 
@@ -63,8 +64,8 @@ hr {
 
 header {
     display: flex;
-    border-bottom: 2px solid #f4f4f4;
-    margin-bottom: 10px;
+    border-bottom: 1px solid #f4f4f4;
+    margin-bottom: 16px;
 }
 header > * {
     flex: auto;
@@ -74,8 +75,11 @@ ul {
     list-style: none;
 }
 
+li {
+    margin-bottom: 8px;
+}
+
 #index-table {
-    list-style-type: decimal;
     padding-left: 40px;
 }
 
@@ -97,4 +101,19 @@ a {
 
 .sub-heading {
     padding-left: 8px;
+}
+
+@media (max-width: 575px) {
+    body {
+        padding: 0;
+    }
+
+    .container {
+        width: auto;
+        padding: 40px 16px;
+    }
+
+    header {
+        flex-direction: column;
+    }
 }
