@@ -8,18 +8,7 @@ function main() {
  * @returns {NodeListOf<HTMLAnchorElement>[]} An array containing all link elements from the three sections
  */
 function getListItems() {
-  const resourceListItems = document.querySelectorAll("#resource-list>li>a");
-  const generalProgrammingItems = document.querySelectorAll(
-    "#general-programming>li>a"
-  );
-  const hardwareResourceListItems = document.querySelectorAll(
-    "#hardware-resource-list>li>a"
-  );
-  return [
-    ...resourceListItems,
-    ...generalProgrammingItems,
-    ...hardwareResourceListItems,
-  ];
+  return document.querySelectorAll("[data-searchable]");
 }
 
 /**
@@ -27,15 +16,27 @@ function getListItems() {
  * @param {NodeListOf<HTMLAnchorElement>[]} items - The collection of resource items to filter
  */
 function onSearch(event, items) {
-  const value = event.target.value.toLowerCase();
+  const query = event.target.value.toLowerCase();
 
   for (const item of items) {
-    const text = item.textContent.toLowerCase();
-    const listItem = item.parentElement;
-    text.includes(value)
-      ? (listItem.style.display = "")
-      : (listItem.style.display = "none");
+    filterListItem(item, query);
   }
 }
 
+function filterListItem(item, query) {
+  const text = item.textContent.toLowerCase();
+  const tags = item?.dataset.tags?.split(",") || [];
+  const contents = [text, ...tags];
+  const listItem = item.parentElement;
+  let i;
+  for (i = 0; i < contents.length; i++) {
+    if (contents[i].includes(query)) {
+      listItem.style.display = "";
+      break;
+    }
+  }
+  if (i === contents.length) {
+    listItem.style.display = "none";
+  }
+}
 main();
