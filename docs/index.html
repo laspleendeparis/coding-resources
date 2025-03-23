@@ -5,16 +5,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Coding-Resources</title>
     <link rel="stylesheet" href="assets/css/main.css" />
-    <script src="assets/js/script.js" defer></script>
+    <script type="module" src="assets/js/script.js" defer></script>
   </head>
   <body>
     <div class="container">
       <header>
         <h1 class="title">Coding Resources</h1>
 
-        <form action="">
-          <input id="search-bar" type="search" placeholder="@" />
-        </form>
+        <div id="search-box" className="search-box">
+          <abbr
+            title="Use # to search by tags. e.g. #python. Search returns any items that match either the text OR one of your tags"
+          >
+            <input
+              id="search-bar"
+              type="search"
+              placeholder="Use # to search by tags. e.g. #python"
+              autocomplete="off"
+            />
+          </abbr>
+        </div>
       </header>
 
       <section>
