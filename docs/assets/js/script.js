@@ -16,15 +16,27 @@ function getListItems() {
  * @param {NodeListOf<HTMLAnchorElement>[]} items - The collection of resource items to filter
  */
 function onSearch(event, items) {
-  const value = event.target.value.toLowerCase();
+  const query = event.target.value.toLowerCase();
 
   for (const item of items) {
-    const text = item.textContent.toLowerCase();
-    const listItem = item.parentElement;
-    text.includes(value)
-      ? (listItem.style.display = "")
-      : (listItem.style.display = "none");
+    filterListItem(item, query);
   }
 }
 
+function filterListItem(item, query) {
+  const text = item.textContent.toLowerCase();
+  const tags = item?.dataset.tags?.split(",") || [];
+  const contents = [text, ...tags];
+  const listItem = item.parentElement;
+  let i;
+  for (i = 0; i < contents.length; i++) {
+    if (contents[i].includes(query)) {
+      listItem.style.display = "";
+      break;
+    }
+  }
+  if (i === contents.length) {
+    listItem.style.display = "none";
+  }
+}
 main();
