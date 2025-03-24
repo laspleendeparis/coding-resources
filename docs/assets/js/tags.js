@@ -74,15 +74,15 @@ const tagsManager = {
       }
     });
 
-    this.checkOverflow = () => {
+    const checkOverflow = () => {
       const isOverflowing =
         this.tagsContainer.scrollWidth > this.tagsContainer.clientWidth;
       this.toggleButton.style.display = isOverflowing ? "" : "none";
     };
 
-    window.addEventListener("resize", this.checkOverflow);
+    window.addEventListener("resize", checkOverflow);
 
-    setTimeout(this.checkOverflow, 0);
+    setTimeout(checkOverflow, 0);
   },
 };
 
