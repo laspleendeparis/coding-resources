@@ -1,0 +1,257 @@
+/* udemy.css */
+:root {
+    --primary: #6A1B9A;
+    --secondary: #9C27B0;
+}
+
+.udemy-header {
+    text-align: center;
+    padding: 2rem 0;
+}
+
+.udemy-logo {
+    width: 120px; /* Reduced size */
+    margin-bottom: 1rem;
+}
+
+.search-container {
+    max-width: 600px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.source-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    margin: 1rem 0;
+}
+
+.source-btn {
+    padding: 0.5rem 1.5rem;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background: #f0f0f0;
+    color: #333;
+}
+
+.source-btn.active {
+    background: var(--primary);
+    color: white;
+}
+
+.results-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+    padding: 2rem;
+}
+
+.course-card {
+    background: white;
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s;
+    position: relative;
+    color: #333; /* Dark text color */
+}
+
+.course-card:hover {
+    transform: translateY(-3px);
+}
+
+.course-card h3 {
+    color: #000;
+    margin: 0 0 0.5rem 0;
+}
+
+.course-card p {
+    color: #444; /* Slightly lighter but still readable */
+}
+
+.coupon-btn {
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    float: right;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.pagination {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    justify-content: center;
+    margin: 2rem 0;
+    flex-wrap: wrap;
+}
+
+.page-btn {
+    padding: 0.5rem 1rem;
+    border: 1px solid #ddd;
+    background: white;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+.page-btn.active {
+    background: var(--primary);
+    color: white;
+    border-color: var(--primary);
+}
+
+.loading-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255, 255, 255, 0.8);
+    display: grid;
+    place-items: center;
+    z-index: 1000;
+    font-size: 1.5rem;
+    color: var(--primary);
+}
+
+#udemy-search {
+    width: 100%;
+    padding: 15px;
+    border: 2px solid #ddd;
+    border-radius: 30px;
+    font-size: 16px;
+    transition: all 0.3s ease;
+}
+
+.udemy-logo {
+    display: inline-block;
+    padding: 0;
+    transition: transform 0.2s;
+  }
+  
+  .udemy-logo img {
+    width: 100px;
+    height: auto;
+    display: block;
+  }
+  
+  .udemy-logo:hover {
+    transform: scale(1.05);
+  }
+
+#udemy-search:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 10px rgba(106, 27, 154, 0.2);
+}
+
+/* Add these to udemy.css */
+@keyframes loading {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+}
+
+.coupon-btn.loading::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.5);
+    animation: loading 1s infinite;
+}
+
+/* Corpion-specific coupon styling */
+.coupon-btn.corpion {
+    background: #4CAF50;
+}
+
+/* Add to udemy.css */
+.pagination {
+    display: flex;
+    gap: 0.5rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.page-btn {
+    padding: 0.5rem 1rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.page-btn:hover:not(.active) {
+    background: #f8f9fa;
+}
+
+.page-btn.active {
+    background: var(--primary);
+    color: white;
+    border-color: var(--primary);
+}
+
+.pagination-nav {
+    background: #f8f9fa;
+    padding: 0.5rem 1rem;
+}
+
+.page-input-container {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+}
+
+.page-input {
+    width: 60px;
+    padding: 0.3rem;
+    text-align: center;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.page-input-container button {
+    padding: 0.5rem 1rem;
+    background: #6A1B9A;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.page-input-container button:hover {
+    opacity: 0.9;
+}
+
+.pagination-nav[disabled] {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.corpion-meta {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin: 0.5rem 0;
+}
+
+.discount-badge {
+    background: #4CAF50;
+    color: white;
+    padding: 0.2rem 0.5rem;
+    border-radius: 4px;
+    font-weight: bold;
+}
