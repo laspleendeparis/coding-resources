@@ -120,35 +120,40 @@ a {
   }
 }
 
+.search-box {
+  overflow: hidden;
+}
+
 /* -- Tags -- */
+.tags-section {
+  display: flex;
+  flex-direction: column;
+}
+
 .tags-container {
   display: flex;
-  flex-wrap: wrap;
+  /* flex-wrap: wrap; */
+  flex-wrap: nowrap;
+  overflow: hidden;
+  width: 100%;
   gap: 0.75rem;
-  padding: 0.4rem 0;
+  padding: 0.4rem 0.2rem;
 }
 
 .tag-button {
-  padding: 0.25rem 0.5rem;
+  padding: 0.3rem 0.75rem;
   background-color: #1e1e1e;
+  color: gray;
+  border: none;
   cursor: pointer;
   border-radius: 0.25rem;
   transition: background-color 0.3s ease;
+  font-size: 0.9em;
+  flex-shrink: 0;
 }
+
 .tag-button:hover {
   background-color: #131313;
-}
-/* -------- */
-
-.tags-wrapper {
-  overflow: hidden;
-  transition: max-height 0.3s ease;
-  position: relative;
-}
-
-.tags-wrapper.collapsed .tags-container {
-  max-height: 50px;
-  overflow: hidden;
 }
 
 .toggle-tags-btn {
@@ -158,4 +163,6 @@ a {
   color: #4b99d1;
   cursor: pointer;
   font-size: 0.9em;
+  align-self: flex-end;
 }
+/* -- Tags End -- */
