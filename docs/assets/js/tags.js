@@ -41,6 +41,9 @@ function getSortedTags(links) {
  * @returns {HTMLElement} The container element with all tag buttons
  */
 function createTagSection(sortedTags) {
+  const wrapper = document.createElement("div");
+  wrapper.classList.add("tags-wrapper", "collapsed");
+
   const tagSection = document.createElement("div");
   tagSection.classList.add("tags-container");
 
@@ -53,7 +56,31 @@ function createTagSection(sortedTags) {
     tagSection.appendChild(tagSpan);
   }
 
-  return tagSection;
+  wrapper.appendChild(tagSection);
+
+  const toggleButton = document.createElement("button");
+  toggleButton.classList.add("toggle-tags-btn");
+  toggleButton.textContent = "Show more";
+  toggleButton.addEventListener("click", function () {
+    if (wrapper.classList.contains("collapsed")) {
+      wrapper.classList.remove("collapsed");
+      toggleButton.textContent = "Show less";
+    } else {
+      wrapper.classList.add("collapsed");
+      toggleButton.textContent = "Show more";
+    }
+  });
+
+  setTimeout(() => {
+    // Hardcoded value; works for now.
+    if (tagSection.offsetHeight <= 49) {
+      toggleButton.style.display = "none";
+    }
+  }, 0);
+
+  wrapper.appendChild(toggleButton);
+
+  return wrapper;
 }
 
 /**
