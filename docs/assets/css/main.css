@@ -124,7 +124,6 @@ a {
 .tags-container {
   display: flex;
   flex-wrap: wrap;
-  width: max-content;
   gap: 0.75rem;
   padding: 0.4rem 0;
 }
@@ -139,4 +138,28 @@ a {
 .tag-button:hover {
   background-color: #131313;
 }
+
+.hidden {
+  display: none;
+}
 /* -------- */
+
+.tags-wrapper {
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+  position: relative;
+}
+
+.tags-wrapper.collapsed .tags-container {
+  max-height: 50px;
+  overflow: hidden;
+}
+
+.toggle-tags-btn {
+  margin-bottom: 10px;
+  background: none;
+  border: none;
+  color: #4b99d1;
+  cursor: pointer;
+  font-size: 0.9em;
+}
