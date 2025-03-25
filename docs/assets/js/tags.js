@@ -2,7 +2,7 @@ import {
   getResourceLinks,
   getSearchBox,
   getSearchBar,
-} from "./element-fetchers.js";
+} from './element-fetchers.js';
 
 /**
  * @typedef {Object} TagsManager
@@ -27,8 +27,8 @@ const tagsManager = {
    * @returns {HTMLElement} The container element with all tag components
    */
   createTagSection(sortedTags) {
-    this.tagsSection = document.createElement("div");
-    this.tagsSection.classList.add("tags-section");
+    this.tagsSection = document.createElement('div');
+    this.tagsSection.classList.add('tags-section');
 
     this._setupTagsContainer(sortedTags);
     this._setupToggleButton();
@@ -43,33 +43,33 @@ const tagsManager = {
    * @param {Object} sortedTags - Object with tag names as keys and occurrence counts as values
    */
   _setupTagsContainer(sortedTags) {
-    this.tagsContainer = document.createElement("div");
-    this.tagsContainer.classList.add("tags-container");
+    this.tagsContainer = document.createElement('div');
+    this.tagsContainer.classList.add('tags-container');
 
     for (const tag of Object.keys(sortedTags)) {
-      const tagButton = document.createElement("button");
+      const tagButton = document.createElement('button');
       tagButton.textContent = `${tag} (${sortedTags[tag]})`;
-      tagButton.addEventListener("click", (e) => onTagClick(e, tag));
-      tagButton.classList.add("tag-button");
+      tagButton.addEventListener('click', (e) => onTagClick(e, tag));
+      tagButton.classList.add('tag-button');
 
       this.tagsContainer.appendChild(tagButton);
     }
   },
 
   _setupToggleButton() {
-    this.toggleButton = document.createElement("button");
-    this.toggleButton.classList.add("toggle-tags-btn");
-    this.toggleButton.textContent = this.collapsed ? "Show more" : "Show less";
-    this.toggleButton.addEventListener("click", () => {
+    this.toggleButton = document.createElement('button');
+    this.toggleButton.classList.add('toggle-tags-btn');
+    this.toggleButton.textContent = this.collapsed ? 'Show more' : 'Show less';
+    this.toggleButton.addEventListener('click', () => {
       if (this.collapsed) {
-        this.tagsContainer.style.flexWrap = "wrap";
-        this.tagsContainer.style.overflow = "visible";
-        this.toggleButton.textContent = "Show less";
+        this.tagsContainer.style.flexWrap = 'wrap';
+        this.tagsContainer.style.overflow = 'visible';
+        this.toggleButton.textContent = 'Show less';
         this.collapsed = false;
       } else {
-        this.tagsContainer.style.flexWrap = "nowrap";
-        this.tagsContainer.style.overflow = "hidden";
-        this.toggleButton.textContent = "Show more";
+        this.tagsContainer.style.flexWrap = 'nowrap';
+        this.tagsContainer.style.overflow = 'hidden';
+        this.toggleButton.textContent = 'Show more';
         this.collapsed = true;
       }
     });
@@ -77,10 +77,10 @@ const tagsManager = {
     const checkOverflow = () => {
       const isOverflowing =
         this.tagsContainer.scrollWidth > this.tagsContainer.clientWidth;
-      this.toggleButton.style.display = isOverflowing ? "" : "none";
+      this.toggleButton.style.display = isOverflowing ? '' : 'none';
     };
 
-    window.addEventListener("resize", checkOverflow);
+    window.addEventListener('resize', checkOverflow);
 
     setTimeout(checkOverflow, 0);
   },
@@ -102,7 +102,7 @@ function getSortedTags(links) {
   const allTags = [];
 
   for (const link of links) {
-    allTags.push(...(link?.dataset.tags?.split(",").filter(Boolean) || []));
+    allTags.push(...(link?.dataset.tags?.split(',').filter(Boolean) || []));
   }
 
   for (const tag of allTags) {
@@ -125,5 +125,5 @@ function getSortedTags(links) {
 function onTagClick(e, tag) {
   const searchBar = getSearchBar();
   searchBar.value = `#${tag}`;
-  searchBar.dispatchEvent(new Event("input"));
+  searchBar.dispatchEvent(new Event('input'));
 }
