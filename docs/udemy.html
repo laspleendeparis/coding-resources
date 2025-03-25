@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Udemy Coupons</title>
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/udemy.css">
+    <script src="assets/js/udemy.js" defer></script>
+</head>
+<body>
+    <div class="container">
+        <header class="udemy-header">
+            <a href="udemy.html" class="udemy-logo" style="display: inline-block; padding: 0;">
+                <img src="https://www.udemy.com/staticx/udemy/images/v7/logo-udemy.svg" 
+                     alt="Udemy" 
+                     title="Udemy Coupons"
+                     style="width: 100px; height: auto; display: block;">
+              </a>
+            <div class="search-container">
+                <input type="text" id="udemy-search" placeholder="Search for courses...">
+                <div class="source-buttons">
+                    <button class="source-btn active" data-source="udemy">Udemy</button>
+                    <button class="source-btn" data-source="corpion">Corpion</button>
+                </div>
+            </div>
+        </header>
+        
+        <div id="results" class="results-grid"></div>
+        <div id="pagination" class="pagination"></div>
+        <div class="page-input-container">
+            <span>Go to Page:</span>
+            <input type="number" class="page-input" min="1">
+            <button onclick="goToPage()">Go</button>
+        </div>
+    </div>
+</body>
+</html>
