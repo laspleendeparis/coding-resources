@@ -1,4 +1,4 @@
-const API_BASE = 'https://cors-anywhere.herokuapp.com/https://udemycoupons-cf36f0d13f8c.herokuapp.com';
+const API_BASE = 'https://udemycoupons-cf36f0d13f8c.herokuapp.com';
 let currentSource = 'udemy';
 let currentPage = 1;
 let totalPages = 1;
